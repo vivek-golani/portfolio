@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
-category: fun
+title: Text to Image Synthesis
+description: Implemented StackGAN and analyzed importance of stacked architecture.
+img: assets/img/proj5_title.jpg
+importance: 2
+category: Computer Vision
 ---
 
 Every project has a beautiful feature showcase page.

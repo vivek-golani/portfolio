@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
-img:
-importance: 4
-category: fun
+title: Sentimental Analysis of Short Texts
+description: Enhanced accuracy of CharSCNN model by 1.5% using unsupervised pre-training.
+img: assets/img/proj6_title.jpg
+importance: 3
+category: NLP
 ---
 
 Every project has a beautiful feature showcase page.
