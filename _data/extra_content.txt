@@ -1,0 +1,10 @@
+about:
+
+Prior to my current academic pursuits, I worked for two years of experience as a Software Engineer at Qualcomm. 
+During my time there, I was actively involved in the development of affordable smart fitness trackers. 
+In 2020, I successfully obtained my Bachelor's degree in Electrical and Electronics Engineering from Birla Institute of Technology and Science. 
+Furthermore, I had the opportunity to gain practical exposure as a Data Science Intern at Piramal Enterprises Limited (PEL), a global pharmaceutical company headquartered in India.
+
+As part of my Master's thesis, I am actively engaged in a project that revolves around Multi-view gaze following, under the guidance of Prof. Dimitris Samaras and Prof. Minh Hoai Nyugen. 
+Additionally, I am currently undertaking a summer internship at Zebra Technologies as a Computer Vision intern. 
+During this internship, my primary focus is on optimizing and deploying transformer models for semantic segmentation tasks on edge devices.

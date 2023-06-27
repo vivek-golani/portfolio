@@ -9,11 +9,13 @@
       <div class="card hoverable">
         {%- if project.img %}
         {%- include figure.html
+          width=250
+          height=166.78
           path=project.img
           alt="project thumbnail" -%}
         {%- endif %}
-        <div class="card-body">
-          <h2 class="card-title text-lowercase">{{ project.title }}</h2>
+        <div class="card-body" style="width: 250px; height: 200px;">
+          <h4 class="card-title text-lowercase">{{ project.title }}</h4>
           <p class="card-text">{{ project.description }}</p>
           <div class="row ml-1 mr-1 p-0">
             {%- if project.github -%}

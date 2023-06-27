@@ -1,81 +1,74 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
-importance: 3
-category: work
+title: Covid-19 Resource Prediction
+description: Quantifying mental health impact of the pandemic and predicting bed hospital bed deficits.
+img: assets/img/proj3_title.jpg
+# redirect: https://unsplash.com
+importance: 1
+category: Data Science & Machine Learning
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+The COVID-19 pandemic has had a significant impact on global public health, with many people
+experiencing increased levels of stress and anxiety, social isolation, and economic hardship. As a result,
+there has been a growing concern about the potential increase in substance abuse and mental health
+issues during the pandemic. To address these concerns, our project aims to provide evidence of a surge
+in substance abuse during the pandemic and quantify its impact on mental health. We also strive to
+develop a forecasting model to predict hospital bed and staffing deficits with a one-week lead time,
+which could help enhance preparedness for future pandemics.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/proj3_method.jpg" title="Methodologies" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Methodologies 
 </div>
+
+To gather our data for sentimental analysis, we utilized both existing COVID-19 Reddit datasets from 2018 to 2021 and also scraped data from 2021 to 2023 using Reddit's open-source APIs. The data was loaded into Spark RDDs and combined, and we performed preprocessing by filtering out posts not related to mental health or substance abuse. We also used engagement scores to filter the data for better results. The XLNet model, a transformers model, was used to classify the posts into five severity score classes: critical, major, moderate, minor, and cosmetic, through a zero-shot classification pipeline.
+
+Using sentiment analysis, we categorized posts into 5 severity classes and plotted them by year from 2018 to 2023 to track changes in each category over time as seen below.
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/proj3_sent_anal.jpg" title="Sentimental Analysis " class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Plots of frequency of posts of varied severities over time.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+Next, we attempted to correlate the number of covid cases in a year with the number of posts classified as critical, major, moderate, minor, and cosmetic. Based on the heatmap presented below, it is evident that there exists a significant correlation
+between the number of new COVID-19 cases and the frequency of posts classified as critical, major, and moderate.
 
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/proj3_heatmap.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Heatmap signifying correlation between rising cases and severity of posts.
 </div>
 
+We then employed the ARIMA model, imported from statsmodels, using 90% of the data and test it against the remaining 10% for availability of inpatient and ICU beds for New York state and for the entire country. We also compared ARIMA, SARIMA and Holts models for forecasting bed availability and found ARIMA to be the best based on root mean squared error values.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/proj3_time_series_plot.jpg" title="Hospital bed availability Time series plots" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-```
-{% endraw %}
+<div class="caption">
+    Time Series Plot of ARIMA model predictions of hospital bed availability for USA and New York State.
+</div>
+
+We then tabulated the predictions of ARIMA model for the period March to May 2023. The result tables show our predictions for inpatient and ICU bed availability. The values are in line with the actual values with slightly poor performance on ICU bed
+availability at the country level. The proximity in train and test RMSE values indicated good generalization of the ARIMA model.
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/proj3_time_series_table.jpg" title="Hospital bed availability Time series plots" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Time series prediction results from March to May 2023.
+</div>

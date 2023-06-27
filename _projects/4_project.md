@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: Cognitive Prosthesis for Goal Achievement
+description: Incorporating dynamic priorities in classification of tasks to optimize current model.
+img: assets/img/proj4_title.jpg
+importance: 2
+category: Data Science & Machine Learning
 ---
 
 Every project has a beautiful feature showcase page.

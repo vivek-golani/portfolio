@@ -1,80 +1,56 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Surgical Skill Prediction
+description: Improving surgical skill prediction on unsupervised simulated JIGSAWS dataset.
+img: assets/img/proj1_title.jpg
 importance: 1
-category: work
+category: Computer Vision
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+Segmentation of surgical tools is a supervised method and requires heavy human labor in the form of annotation of the videos. Also, there is a scarcity of availability of open clinical datasets. To mitigate the dependency on clinical data and manual evaluation of surgical skill, we propose a modified unsupervised segmentation method and implement it on the JIGSAWS dataset. The segmentation method makes use of visual cues like optical flow, color and location and uses them as pseudo labels. These pseudo labels are then used to train a model to perform segmentation of the surgical instruments. The segmentation masks generated are then used as input to the surgical skill assessment model, which predicts the skill level of a surgery.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/proj1_color_cue.PNG" title="Color Cue for JIGSAWS" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Color Cue Results on Knot-Tying, Needle-Passing and Suturing tasks in JIGSAWS dataset.
 </div>
+
+
+
+For Unsupervised Tool Segmentation, we uses handcrafted cues to generate pseudo labels. These cues include optical flow, color and location. Cues are probability maps that help us detect the presence of a surgical tool at a given pixel. After generating the three cues for each image, the element-wise multiplication of these cues give us anchors. These anchors are aggregated with the output of a U-Net to provide the anchor loss. To capture inter-frame semantic similarity, predictions from the U-Net and the output feature maps of a pre-trained CNN are aggregated to generate a diffusion loss. The goal of the unsupervised segmentation model is then to optimize the combined loss. 
+
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/proj1_segm_model.jpg" title="Unsupervised Tool Segmentation Model" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Unsupervised Tool Segmentation Model
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
 
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+The segmentation masks are then passed as input to the multi-path Unified Skill Prediction Model for predicting how well
+a surgery is performed. This model proposes a unified multi-path framework for surgical skill assessment, which takes care of multiple aspects of surgical skills which include surgical tool usage, intraoperative event pattern, and other skill proxies. The dependencies among these aspects are modified by a path dependency module. Following are the three aspects considered in the model:
+
+<ul>
+<li> Movement of surgical tools - helps capture the tool handling proficiency of the surgeon.</li>
+<li> Clearness of the operating field as a skill proxy - A clear operating field ensures high visibility of anatomy structures, which is critical for the surgeon’s performance.</li>
+<li> Workflow of surgical events - evaluates if the surgery was performed in an orderly manner necessary for a well performed surgery.</li>
+</ul>
+
+The path dependency module then captures the inter-dependencies between these paths giving an overall surgery score.
+
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/proj1_skill_model.jpg" title="Unified Skill Prediction Model" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Unified Skill Prediction Model
 </div>
-
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}

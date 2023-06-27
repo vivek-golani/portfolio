@@ -1,8 +1,9 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2020-01-06
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Joined Consumer Products Division of Piramal as a Data Science Intern.
+
