@@ -8,7 +8,16 @@ layout: default
           <h1 class="post-title">
            {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
           </h1>
+          <style>
+            .boldStuff:after{
+                content:'zindagi badi honi chaiye..lambi nahin.';
+            }
+            .boldStuff:hover:after{
+                content:'Live a big, impactful and meaningful life, not necessarily a long one!';
+            }
+          </style>
           <p class="desc">{{ page.subtitle }}</p>
+          <!-- <input type="button" onclick="changeText()" value="Translate"/> -->
         </header>
 
         <article>
@@ -37,19 +46,19 @@ layout: default
           {%- endif %}
 
           <div class="clearfix">
-            {{ content }}
+            {{ content }} 
           </div>
+
+          <!-- Latest posts -->
+          {% if page.latest_posts -%}
+            <h2><a href="{{ '/latest/' | relative_url }}" style="color: inherit;">current work</a></h2>
+            {%- include latest_posts.html %}
+          {%- endif %}
 
           <!-- News -->
           {% if page.news and site.announcements.enabled -%}
             <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
             {%- include news.html limit=true %}
-          {%- endif %}
-
-          <!-- Latest posts -->
-          {% if page.latest_posts -%}
-            <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">latest posts</a></h2>
-            {%- include latest_posts.html %}
           {%- endif %}
 
           <!-- Selected papers -->

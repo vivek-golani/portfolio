@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Let me tell you something that ChatGPT won't, <i>zindagi badi honi chaiye..lambi nahin.</i>
+subtitle: Let me tell you something ChatGPT won't, <i class="boldStuff"></i>
 
 profile:
   align: left
@@ -19,5 +19,9 @@ selected_papers: false # includes a list of papers marked as "selected={false}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am currently pursuing a Master's degree in Computer Science at Stony Brook University in New York. My research interests lie in the areas of Computer Vision, Machine Learning, and Software Development. I obtained my Bachelor's degree in Electrical and Electronics Engineering from BITS Pilani and have professional experience at Zebra, Qualcomm and Piramal. I am an enthusiastic learner and I enjoy developing software to make human life easier. My previous <a href="{{ site.baseurl }}/projects">work</a> has equipped me with skills across various domains in Computer Science and I am currently looking for Full time job opportunities.
+I am a second-year Master's student in Computer Science at <a href="https://www.stonybrook.edu/">Stony Brook University</a>, advised by Prof. <a href="https://www3.cs.stonybrook.edu/~samaras/">Dimitris Samaras</a>. My research interests lie in the areas of Computer Vision, Machine Learning, and Software Development. I enjoy developing software, especially when it involves training neural networks to make human life better. Prior to joining Stony Brook, I graduated with a Bachelor's degree in Electrical and Electronics Engineering from <a href="https://www.bits-pilani.ac.in/">BITS Pilani</a>. 
+
+Outside of academia, I have been lucky to gain professional experience at <a href="https://www.zebra.com/us/en.html">Zebra</a>, <a href="https://www.qualcomm.com/">Qualcomm</a> and <a href="https://www.piramal.com/">Piramal</a>, a global pharmaceutical headquartered in India. I am an enthusiastic learner and my previous <a href="{{ site.baseurl }}/projects"><b>work</b></a> has equipped me with skills across various domains in Computer Science. 
+
+I am currently looking for Full time job opportunities, please reach out if you are hiring.
 

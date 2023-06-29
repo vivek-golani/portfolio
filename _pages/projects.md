@@ -5,7 +5,7 @@ permalink: /projects/
 description:
 nav: true
 nav_order: 2
-display_categories: [Work, Computer Vision, NLP, Data Science & Machine Learning]
+display_categories: [Computer Vision, NLP, Data Science & Machine Learning]
 horizontal: false
 ---
 

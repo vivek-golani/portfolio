@@ -7,74 +7,21 @@ importance: 2
 category: Data Science & Machine Learning
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+I first create a visualization of the MDP model that <a href="https://www.researchgate.net/publication/318958840_Cognitive_Prostheses_for_Goal_Achievement">Lieder, Chen, Krueger, and Griffiths (2019)</a> used to compute optimal incentives for to-do list gamification assuming that there are five to-dos that take 5,10,15,20,25 minutes would consist of 32 states. The figure below is the state diagram of the to-do list gamification:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/proj4_title.jpg" title="State Diagram" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
+    State Diagram of MDP model for to-do list gamification.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+The model consisted of 32 states. The actions at every state comprises doing one of the five to-do tasks or doing nothing i.e. if the agent is in a certain state where he has done a certain set of tasks and is trying to repeat a previously done task he will stay in the same state. Also, there is an exit state where the user can go to from any state for termination when the user loses motivation and leaves a task in between or stops doing tasks.
 
+The rewards i.e. number of points assigned to each task was computed by optimal gamification, which takes into account the time required to complete the to-do and the value of the goals that each task contributes and how much it contributes to it. According to the optimal reward function derived in the paper:
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+The reward function after inclusion of pseudo rewards, has the original reward and difference in state value functions of next state and current state. Hence, even though the negative reward or cost of the 25-minute task may be the highest, the difference in state value of the next state and current state in this case is also the highest. This is because the state values depend upon the percentage of task left to achieve the end goal i.e. in this case the $20 reward. 
 
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
+Further, to extend the current research, I proposed that I would include further priority classification of tasks i.e. we could make five groups of priority where the first group or GROUP A would be the tasks of highest priority, the second group or GROUP B would be tasks of comparatively less priority as compared to tasks of GROUP A but are tasks of importance. GROUP C would comprise tasks that the user wants to do but can be done at a later time. GROUP D would consist of tasks that are important but can be delegated to other people to complete. Finally, GROUP E would have unimportant tasks. 
