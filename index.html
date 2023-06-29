@@ -36,7 +36,7 @@
 
     <!-- Styles -->
     
-    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%96%96&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="canonical" href="https://vivek-golani.github.io/">
@@ -91,14 +91,11 @@
               <li class="nav-item ">
                 <a class="nav-link" href="/teaching/">teaching</a>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/publications/">publications</a>
-              </li>
 
               <!-- Blog -->
-              <li class="nav-item ">
+              <!-- <li class="nav-item ">
                 <a class="nav-link" href="/blog/">blog</a>
-              </li>
+              </li> -->
               
               <!-- Toogle theme mode -->
               <li class="toggle-container">
@@ -130,7 +127,16 @@
           <h1 class="post-title">
            <span class="font-weight-bold">Vivek</span> R. Golani
           </h1>
-          <p class="desc">Let me tell you something that ChatGPT won't, <i>zindagi badi honi chaiye..lambi nahin.</i></p>
+          <style>
+            .boldStuff:after{
+                content:'zindagi badi honi chaiye..lambi nahin.';
+            }
+            .boldStuff:hover:after{
+                content:'Live a big, impactful and meaningful life, not necessarily a long one!';
+            }
+          </style>
+          <p class="desc">Let me tell you something ChatGPT won't, <i class="boldStuff"></i></p>
+          <!-- <input type="button" onclick="changeText()" value="Translate"/> -->
         </header>
 
         <article>
@@ -155,10 +161,17 @@
           </div>
 
           <div class="clearfix">
-            <p>I am currently pursuing a Master’s degree in Computer Science at Stony Brook University in New York. My research interests lie in the areas of Computer Vision, Machine Learning, and Software Development. I obtained my Bachelor’s degree in Electrical and Electronics Engineering from BITS Pilani and have professional experience at Zebra, Qualcomm and Piramal. I am an enthusiastic learner and I enjoy developing software to make human life easier. My previous <a href="/projects">work</a> has equipped me with skills across various domains in Computer Science and I am currently looking for Full time job opportunities.</p>
+            <p>I am a second-year Master’s student in Computer Science at <a href="https://www.stonybrook.edu/" rel="external nofollow noopener" target="_blank">Stony Brook University</a>, advised by Prof. <a href="https://www3.cs.stonybrook.edu/~samaras/" rel="external nofollow noopener" target="_blank">Dimitris Samaras</a>. My research interests lie in the areas of Computer Vision, Machine Learning, and Software Development. I enjoy developing software, especially when it involves training neural networks to make human life better. Prior to joining Stony Brook, I graduated with a Bachelor’s degree in Electrical and Electronics Engineering from <a href="https://www.bits-pilani.ac.in/" rel="external nofollow noopener" target="_blank">BITS Pilani</a>.</p>
 
+<p>Outside of academia, I have been lucky to gain professional experience at <a href="https://www.zebra.com/us/en.html" rel="external nofollow noopener" target="_blank">Zebra</a>, <a href="https://www.qualcomm.com/" rel="external nofollow noopener" target="_blank">Qualcomm</a> and <a href="https://www.piramal.com/" rel="external nofollow noopener" target="_blank">Piramal</a>, a global pharmaceutical headquartered in India. I am an enthusiastic learner and my previous <a href="/projects"><b>work</b></a> has equipped me with skills across various domains in Computer Science.</p>
 
+<p>I am currently looking for Full time job opportunities, please reach out if you are hiring.</p>
+
+ 
           </div>
+
+          <!-- Latest posts -->
+          
 
           <!-- News -->
           <h2><a href="/news/" style="color: inherit;">news</a></h2>          <div class="news">
@@ -205,9 +218,6 @@
             </div>
           </div>
 
-          <!-- Latest posts -->
-          
-
           <!-- Selected papers -->
           
 
@@ -218,7 +228,6 @@
             <a href="https://github.com/vivek-golani" title="GitHub" rel="external nofollow noopener" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/vivek-golani" title="LinkedIn" rel="external nofollow noopener" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://instagram.com/vivekgolani" title="Instagram" rel="external nofollow noopener" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="/feed.xml" title="RSS Feed"><i class="fas fa-rss-square"></i></a>
             
 
               </div>
